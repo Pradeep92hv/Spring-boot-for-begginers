@@ -1,13 +1,20 @@
 package com.pradeephv.springdemo.student;
 
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.time.LocalDate;
 import java.time.Period;
 
-
+@Entity
+@Table(name = "student")
 public class Student {
 
-
+    @Id
+    @GeneratedValue
     private Integer id;
 
     private String firstname;
@@ -16,9 +23,10 @@ public class Student {
 
     private LocalDate dateOfBirth;
 
+    @Column(unique = true)
     private String email;
 
-
+    @Transient
     private int age;
 
     public Student(
